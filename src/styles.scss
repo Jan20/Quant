@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import './theme.scss';
+
+*{
+
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+     
+    background-color: rgb(245, 245, 245); 
+
+}
+
+h1 {
+
+    line-height: 100%;
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: rgb(90, 90, 90);    
+    
+}
+
+p {
+
+    line-height: 200%;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: justify;
+    color: rgb(90, 90, 90);    
+    
+}
+
+
+md-card {
+    
+    width: 60%;
+    margin:0 auto;
+
+}
+
+.whitespace{
+    
+    margin: 50px;    
+
+}

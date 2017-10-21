@@ -1,0 +1,23 @@
+<md-card>
+  <h1>{{title}}</h1>
+  <md-grid-list cols='4' rowHeight='35px'>
+      <md-grid-tile class='header' *ngFor='let header of headers'>
+        {{header}}
+      </md-grid-tile>
+  </md-grid-list>    
+  <md-grid-list cols='4' rowHeight='35px' *ngFor='let score of scores'>
+    <md-grid-tile class='header' colspan='1' >
+      {{score.name}}
+    </md-grid-tile>
+    <md-grid-tile class='header' colspan='1'>
+      {{score.value | percent:'1.1'}}
+    </md-grid-tile>
+    <md-grid-tile class='header' colspan='1'>
+      {{score.volatility | percent:'1.1'}}
+    </md-grid-tile>  
+    <md-grid-tile class='header' colspan='1'>
+      {{score.sharpeRatio | number: '1.1'}}
+    </md-grid-tile>  
+  </md-grid-list>
+</md-card>
+

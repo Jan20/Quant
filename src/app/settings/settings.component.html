@@ -1,0 +1,31 @@
+<md-card>
+
+  <h1>{{market}}</h1>
+
+  <p class='aligned_text'>
+    The DAX is a blue chip stock market index consisting of the 30 major German companies trading on the Frankfurt Stock Exchange. Prices are taken from the Xetra trading venue. According to Deutsche Börse, the operator of Xetra, DAX measures the performance of the Prime Standard’s 30 largest German companies in terms of order book volume and market capitalization.
+  </p>
+
+  <button md-raised-button color=primary (click)=deleteMarket()>
+    <md-icon class='icon'>delete</md-icon> Erase
+  </button>
+
+  <button md-raised-button color=primary (click)=fetchMarket()>
+    <md-icon class='icon'>file_download</md-icon> Fetch
+  </button>
+
+</md-card>
+
+<div class='whitespace'></div>
+
+<md-card class="notification" *ngIf="visible">
+
+  <p class='aligned_text'>
+    {{notificationBody}}						
+  </p>
+
+  <button md-raised-button color=primary (click)=dismiss()>
+    <md-icon class='icon'>done</md-icon> Dismiss
+  </button>
+
+</md-card>

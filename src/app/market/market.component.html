@@ -1,0 +1,51 @@
+<md-card>
+	<h1>{{market}}</h1>
+	<md-grid-list cols="15" rowHeight="35px">
+		<md-grid-tile colspan='3' class='bar-tile'>Stock</md-grid-tile>
+		<div *ngFor='let date of dates'>
+			<md-grid-tile colspan='1' class='bar-tile'>
+				{{date | date:'d MMM' }}
+			</md-grid-tile>
+		</div>
+	</md-grid-list>
+
+	<md-grid-list cols="15" rowHeight="35px">
+		<div *ngFor="let timeline of timelines">
+			<md-grid-tile colspan='3' class='basic-tile'>
+				<button md-button (click)=switchToStock(timeline.getStocks()[0].name)>{{timeline.getStocks()[0].name}}</button>
+			</md-grid-tile>
+			<div *ngFor="let stock of timeline.getStocks()">
+				<md-grid-tile *ngIf='stock.change > 0 && stock.change <= 5' colspan='1'>
+					<button md-raised-button class='tile-good'>
+						{{stock.change}} % 
+					</button>
+				</md-grid-tile>
+				<md-grid-tile *ngIf='stock.change > 5 && stock.change <= 10' colspan='1'>
+					<button md-raised-button class='tile-better'>
+						{{stock.change}} %
+					</button>
+				</md-grid-tile>
+				<md-grid-tile *ngIf='stock.change > 10' colspan='1'>
+					<button md-raised-button class='tile-best'>
+						{{stock.change}} %
+					</button>
+				</md-grid-tile>
+				<md-grid-tile *ngIf='stock.change <= 0 && stock.change+100 > 95' colspan='1'>
+					<button md-raised-button class='tile-bad'>
+						{{stock.change}} %
+					</button>
+				</md-grid-tile>
+				<md-grid-tile *ngIf='stock.change+100 > 90 && stock.change+100 <= 95' colspan='1'>
+					<button md-raised-button class='tile-worse'>
+						{{stock.change}} %
+					</button>
+				</md-grid-tile>
+				<md-grid-tile *ngIf='stock.change+100 <= 90' colspan='1'>
+					<button md-raised-button class='tile-worst'>
+						{{stock.change}} %
+					</button>
+				</md-grid-tile>
+			</div>
+		</div>
+	</md-grid-list>
+</md-card>
